@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby and WordPress Demo Starter`,
@@ -8,7 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `http://mywpsite.local/graphql`,
+        url: process.env.WORDPRESS_GRAPHQL_ENDPOINT, //`https://wordpress-458080-2003373.cloudwaysapps.com/graphql`,
         develop: {
           hardCacheMediaFiles: true,
         },
